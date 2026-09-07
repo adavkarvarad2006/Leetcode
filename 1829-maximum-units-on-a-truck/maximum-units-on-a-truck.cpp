@@ -7,16 +7,13 @@ public:
 
         int count = 0;
 
-        for(int i=0; i < boxTypes.size(); i++){
+        for(auto &box : boxTypes){
+            int boxes = min(truckSize, box[0]);
+
+            count += boxes * box[1];
+            truckSize -= boxes;
+
             if(truckSize == 0){
-                break;
-            }
-            if(truckSize >= boxTypes[i][0]){
-                count += boxTypes[i][0] * boxTypes[i][1];
-                truckSize -= boxTypes[i][0];
-            }
-            else{
-                count += truckSize * boxTypes[i][1];
                 break;
             }
         }
