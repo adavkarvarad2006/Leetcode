@@ -1,19 +1,44 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        unordered_map<int, int> mp;
-        int n = nums.size();
+        int candidate = 0;
+        int count = 0;
 
-        for(int i=0; i<n; i++){
-            mp[nums[i]]++;
-        }
+        for(int num : nums){
+            if(count == 0){
+                candidate = num;
+            }
 
-        for(auto it : mp){
-            if(it.second > n/2){
-                return it.first;
+            if(num == candidate){
+                count++;
+            }
+            else{
+                count--;
             }
         }
 
-        return 0;
+        return candidate;
     }
 };
+
+
+// brute force
+// class Solution {
+// public:
+//     int majorityElement(vector<int>& nums) {
+//         unordered_map<int, int> mp;
+//         int n = nums.size();
+
+//         for(int i=0; i<n; i++){
+//             mp[nums[i]]++;
+//         }
+
+//         for(auto it : mp){
+//             if(it.second > n/2){
+//                 return it.first;
+//             }
+//         }
+
+//         return 0;
+//     }
+// };
