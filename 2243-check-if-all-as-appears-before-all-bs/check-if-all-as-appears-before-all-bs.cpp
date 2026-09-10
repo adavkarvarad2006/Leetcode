@@ -3,15 +3,9 @@ public:
     bool checkString(string s) {
         bool flag = false;
 
-        for(int i=0; i<s.size(); i++){
-            if(s[i] == 'b')
-                flag = true;
-
-            if(s[i] == 'a'){
-                if(flag == false)
-                    continue;
-                else
-                    return false;
+        for(int i=1; i<s.size(); i++){
+            if(s[i-1] == 'b' && s[i] == 'a'){
+                return false;
             }
         }
         return true;
