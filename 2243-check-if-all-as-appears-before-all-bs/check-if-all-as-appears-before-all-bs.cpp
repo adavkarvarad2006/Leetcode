@@ -3,11 +3,10 @@ public:
     bool checkString(string s) {
         bool flag = false;
 
-        for(int i=1; i<s.size(); i++){
-            if(s[i-1] == 'b' && s[i] == 'a'){
-                return false;
-            }
+        if(s.contains("ba")){
+            return false;
         }
+        
         return true;
     }
 };
