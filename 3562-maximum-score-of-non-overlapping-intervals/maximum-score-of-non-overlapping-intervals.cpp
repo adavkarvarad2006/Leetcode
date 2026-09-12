@@ -7,12 +7,7 @@ public:
         vector<array<long long, 4>> a;
 
         for (int i = 0; i < n; i++) {
-            a.push_back({
-                intervals[i][0],
-                intervals[i][1],
-                intervals[i][2],
-                i
-            });
+            a.push_back({intervals[i][0], intervals[i][1], intervals[i][2], i});
         }
 
         // Sort by ending position
@@ -45,13 +40,9 @@ public:
         }
 
         // dp[i][k] = {maximum score, chosen original indices}
-        vector<vector<pair<long long, vector<int>>>> dp(
-            n + 1,
-            vector<pair<long long, vector<int>>>(5)
-        );
+        vector<vector<pair<long long, vector<int>>>> dp(n + 1, vector<pair<long long, vector<int>>>(5));
 
-        auto better = [](pair<long long, vector<int>>& x,
-                         pair<long long, vector<int>>& y) {
+        auto better = [](pair<long long, vector<int>>& x, pair<long long, vector<int>>& y){
             if (x.first != y.first)
                 return x.first > y.first;
 
