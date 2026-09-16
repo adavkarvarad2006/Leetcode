@@ -12,8 +12,8 @@ public:
             }
         }
 
-        vector<int> rowCount(m);
-        vector<int> colCount(n);
+        vector<int> rowCount(m, 0);
+        vector<int> colCount(n, 0);
 
         for(int i=0; i<arr.size(); i++){
             int a = arr[i];
