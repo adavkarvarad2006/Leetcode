@@ -5,7 +5,7 @@ public:
         int x;
 
         for(int i=0; i<s.size(); i++){
-            x = abs(s[i] - 'z') + 1;
+            x = 'z' - s[i] + 1;
             ans += x*(i+1);
         }
 
