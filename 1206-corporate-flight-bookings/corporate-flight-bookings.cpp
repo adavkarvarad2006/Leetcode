@@ -8,8 +8,8 @@ public:
             int b = bookings[i][1];
             int c = bookings[i][2];
 
-            for(int j=a-1; j<=b-1; j++){
-                ans[j] += c;
+            for(int j=a; j<=b; j++){
+                ans[j-1] += c;
             }
         }
 
