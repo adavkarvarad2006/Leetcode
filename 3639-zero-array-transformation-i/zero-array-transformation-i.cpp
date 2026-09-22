@@ -14,15 +14,11 @@ public:
 
         int sum = 0;
 
-        for(int i=0; i<n-1; i++){
-            diff[i+1] += diff[i];
-           
-        }
-
         for(int i=0; i<n; i++){
-            if(nums[i] > diff[i]){
+            sum += diff[i];
+            
+            if(sum < nums[i])
                 return false;
-            }
         }
 
         return true;
