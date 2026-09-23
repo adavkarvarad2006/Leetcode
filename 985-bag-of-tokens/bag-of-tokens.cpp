@@ -11,15 +11,14 @@ public:
         int right = n-1;
 
         while(left <= right){
-            while(left <= right && power >= tokens[left]){
+            if(power >= tokens[left]){
                 power -= tokens[left];
                 left++;
                 score++;
 
                 ans = max(ans,score);
             }
-
-            if(left <= right && score > 0){
+            else if(score > 0){
                 power += tokens[right];
                 right--;
                 score--;
