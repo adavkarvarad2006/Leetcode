@@ -21,7 +21,7 @@ public:
                 i++;
             }
             else{
-                //(s[i] == ')' && i < n-1 && s[i+1] == '(') or (s[i] == ')' && i == n-1 && s[i+1] == '(')
+                //(s[i] == ')' && i < n-1 && s[i+1] == '(') or (s[i] == ')' && i == n-1)
                 if(depth > 0){
                     depth--;
                     //need to add ')'
