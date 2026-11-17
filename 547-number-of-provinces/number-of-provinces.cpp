@@ -2,37 +2,31 @@ class Solution {
 public:
     int findCircleNum(vector<vector<int>>& isConnected) {
         int n = isConnected.size();
-        unordered_set<int> s;
+
+        vector<bool> visited(n, false);
         int ans = 0;
 
         for(int i=0; i<n; i++){
-            s.insert(i);
-        }
 
-        while(!s.empty()){
-            int element = *s.begin();
-            s.erase(element);
-            vector<bool> visited(n, false);
-
-            queue<int> q;
-
-            q.push(element);
-
-            while(!q.empty()){
-
-                int i = q.front();
-                q.pop();
+            if(!visited[i]){
+                queue<int> q;
+                q.push(i);
                 visited[i] = true;
 
-                for(int j=0; j<n; j++){
-                    if(i != j && !visited[j] && isConnected[i][j] == 1){
-                        q.push(j);
-                        s.erase(j);
+                while(!q.empty()){
+                    int node = q.front();
+                    q.pop();
+
+                    for(int j=0; j<n; j++){
+                        if(!visited[j] && isConnected[node][j] == 1){
+                            q.push(j);
+                            visited[j] = true;
+                        }
                     }
                 }
-            }
 
-            ans++;
+                ans++;
+            }
         }
 
         return ans;
